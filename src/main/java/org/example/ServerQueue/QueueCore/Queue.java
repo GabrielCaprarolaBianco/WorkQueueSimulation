@@ -29,7 +29,7 @@ public class Queue {
             tail = null;
             return returnJob;
         }
-        returnJob = head.getJob();
+        returnJob = head.getJob();  //if head has null job, will exit code here
         head = head.nextQueue;
         return returnJob;
     }

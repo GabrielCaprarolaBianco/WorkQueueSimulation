@@ -18,7 +18,17 @@ public class TimeSimulator {
         completedJobQueue = new Queue();
     }
 
-    public void run(){
-        //will finish once i get home.
+    public void run(double runTime){
+        double nextArrivalTime;
+        double nextServiceTime;
+        serverQueue.add(arrivalProcess.nextJob(), globalClock.whatTimeIsIt());
+        while(runTime > globalClock.whatTimeIsIt()){
+            nextArrivalTime = arrivalProcess.nextArrivalTime(globalClock.whatTimeIsIt());
+            nextServiceTime = serverQueue.endServiceTime();
+            if(nextServiceTime >= nextArrivalTime){
+
+            }
+
+        }
     }
 }

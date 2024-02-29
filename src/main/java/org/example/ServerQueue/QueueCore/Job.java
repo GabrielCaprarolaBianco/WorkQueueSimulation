@@ -20,7 +20,8 @@ public class Job {
     }
     public void addTimeStamp(double currentTime, String locationOfWait){
         int TimeStampIndex = 0;
-        if(timeStamp[9] != null){
+        int lengthOfArray = timeStamp.length - 1;
+        if(timeStamp[lengthOfArray] != null){
             timeStamp = arrayExpansion(timeStamp);
         }
         while(timeStamp[TimeStampIndex] != null){
