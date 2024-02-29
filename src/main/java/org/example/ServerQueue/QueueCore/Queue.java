@@ -1,4 +1,4 @@
-package org.example.QueueCore;
+package org.example.ServerQueue.QueueCore;
 
 public class Queue {
     private QueueObject head, tail;
@@ -20,13 +20,9 @@ public class Queue {
     }
 
     public Job dequeue(){
+        //This job should never be called when the queue is empty.
+        //If it is called when the queue is empty then there is a logic flow error earlier in the program
         Job returnJob;
-        if(head == null){
-            //Job with an assigned UUID of 'null' will act as a null value
-            //This is done to dodge issues with null values being passed to methods calling for a job
-            //The value for a null Job is a UUID with all values set to "0"
-            return new Job(true);
-        }
         if(head.getJob() == tail.getJob()){
             returnJob = head.getJob();
             head = null;
