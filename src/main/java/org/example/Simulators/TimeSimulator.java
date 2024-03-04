@@ -26,9 +26,13 @@ public class TimeSimulator {
             nextArrivalTime = arrivalProcess.nextArrivalTime(globalClock.whatTimeIsIt());
             nextServiceTime = serverQueue.endServiceTime();
             if(nextServiceTime >= nextArrivalTime){
-
+                completedJobQueue.enqueue(serverQueue.complete(globalClock.whatTimeIsIt()));
+                globalClock.setGlobalClock(nextServiceTime);
             }
-
-        }
+            else{
+                serverQueue.add(arrivalProcess.nextJob(), globalClock.whatTimeIsIt());
+                globalClock.setGlobalClock(nextArrivalTime);
+            }
+        }//while loop
     }
 }

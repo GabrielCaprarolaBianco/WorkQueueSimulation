@@ -42,6 +42,18 @@ public class Job {
         timeStamp[timeStampIndex].setEndTime(currentTime);
     }
 
+    public TimeStamp[] timeStampDump(){ //This method is to trim any extra space from timeStamp before passing forward
+        int timeStampIndex = 0;
+        while(timeStamp[timeStampIndex] != null){
+            timeStampIndex++;
+        }
+        TimeStamp[] tempArray = new TimeStamp[timeStampIndex +1]; //The +1 is needed to make sure array is correct length
+        for(int i = 0; i < tempArray.length; i++){
+            tempArray[i] = timeStamp[i];
+        }
+        return tempArray;
+    }
+
     public TimeStamp[] arrayExpansion(TimeStamp[] oldArray){
         TimeStamp[] newArray = new TimeStamp[oldArray.length + 10];
         for(int i = 0; i < oldArray.length; i++){

@@ -42,7 +42,7 @@ public class Queue {
     }
 
 
-    protected int queueLength(){
+    public int queueLength(){
         //queueSize is set to one because the while loop will end before adding the tail item to count
         int queueSize = 1;
         QueueObject index = head;
