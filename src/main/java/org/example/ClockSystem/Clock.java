@@ -1,7 +1,7 @@
 package org.example.ClockSystem;
 
 public class Clock {
-
+    //encapsulated Object responsible for the keeping of time
     private ClockObject globalClock = new ClockObject();
 
     public void addTime(double timeToAdd){

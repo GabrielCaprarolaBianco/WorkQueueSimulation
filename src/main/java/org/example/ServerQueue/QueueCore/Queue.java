@@ -7,7 +7,6 @@ public class Queue {
         tail = null;
     }
 
-
     public void enqueue(Job job){
         if(head == null){                 //If head is null that means queue is empty, so tail and head need to be
             head = new QueueObject(job);  //set to the first object in queue
@@ -34,7 +33,7 @@ public class Queue {
         return returnJob;
     }
 
-    public boolean isQueueEmpty(){
+    public boolean isQueueEmpty(){ //checks to see if head is null to check is queue is empty
         if(head == null)
             return true;
         else

@@ -18,11 +18,11 @@ public class Job {
     public UUID getJobID(){
         return jobID;
     }
-    public void addTimeStamp(double currentTime, String locationOfWait){
+    public void addTimeStamp(double currentTime, String locationOfWait){ //adds a new timeStamp object to array list
         int TimeStampIndex = 0;
         int lengthOfArray = timeStamp.length - 1;
         if(timeStamp[lengthOfArray] != null){
-            timeStamp = arrayExpansion(timeStamp);
+            timeStamp = arrayExpansion(timeStamp);    //should be occasionally used, but necessary
         }
         while(timeStamp[TimeStampIndex] != null){
             TimeStampIndex++;
@@ -30,7 +30,7 @@ public class Job {
         timeStamp[TimeStampIndex] = new TimeStamp(currentTime, locationOfWait);
     }
 
-    public void completeTimeStamp(double currentTime, String locationOfWait){
+    public void completeTimeStamp(double currentTime, String locationOfWait){  //invoked when a job moves between queues/services
         int timeStampIndex = 0;
         while(timeStamp[timeStampIndex] != null){
             if(timeStamp[timeStampIndex].getLocationOfWait() == locationOfWait){
@@ -47,14 +47,14 @@ public class Job {
         while(timeStamp[timeStampIndex] != null){
             timeStampIndex++;
         }
-        TimeStamp[] tempArray = new TimeStamp[timeStampIndex +1]; //The +1 is needed to make sure array is correct length
+        TimeStamp[] tempArray = new TimeStamp[timeStampIndex];
         for(int i = 0; i < tempArray.length; i++){
             tempArray[i] = timeStamp[i];
         }
         return tempArray;
     }
 
-    public TimeStamp[] arrayExpansion(TimeStamp[] oldArray){
+    public TimeStamp[] arrayExpansion(TimeStamp[] oldArray){  //expands any timeStamp arrays that need more room
         TimeStamp[] newArray = new TimeStamp[oldArray.length + 10];
         for(int i = 0; i < oldArray.length; i++){
             newArray[i] = oldArray[i];

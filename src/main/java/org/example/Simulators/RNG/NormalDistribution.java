@@ -3,6 +3,7 @@ package org.example.Simulators.RNG;
 import java.util.Random;
 
 public class NormalDistribution {
+    //This method generates a normal distribution used to calculate a semi-random number for the service time
     private double meanServiceTime;
     private Random random;
     private double standardDeviation;
